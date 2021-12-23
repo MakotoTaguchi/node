@@ -51,7 +51,7 @@ var data = {
 
 // indexページ
 function response_index(request, response) {
-  var msg = "これはIndexページです。";
+  var msg = "これはIndexページです";
   var content = ejs.render(index_page, {
     title: "Index",
     content: msg,
