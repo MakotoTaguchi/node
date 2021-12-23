@@ -42,12 +42,20 @@ function getFromClient(request, response) {
   }
 }
 
+var data = {
+  'Taro': '09-999-999',
+  'Juntaro': '00-000-000',
+  'Shouki': '01-012-055',
+  'Jun': '08-555-666'
+};
+
 // indexページ
 function response_index(request, response) {
   var msg = "これはIndexページです。";
   var content = ejs.render(index_page, {
     title: "Index",
     content: msg,
+    data: data,
   });
   response.writeHead(200, {
     'Content-Type': 'text/html'
