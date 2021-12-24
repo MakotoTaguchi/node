@@ -43,20 +43,36 @@ function getFromClient(request, response) {
 }
 
 var data = {
-  'Taro': '09-999-999',
-  'Juntaro': '00-000-000',
-  'Shouki': '01-012-055',
-  'Jun': '08-555-666'
+  msg: 'no message...'
 };
 
 // indexページ
 function response_index(request, response) {
-  var msg = "これはIndexページです";
+  // POSTアクセス
+  if (request.method == 'POST') {
+    var body = '';
+
+    // データ受信
+    request.on('data', (data) => {
+      body += data;
+    });
+
+    // データ受信終了
+    request.on('end', () => {
+      data = qs.parse(body);
+      write_index(request, response);
+    });
+  } else {
+    write_index(request, response);
+  }
+}
+
+function write_index(request, response) {
+  var msg = "伝言を表示します。"
   var content = ejs.render(index_page, {
     title: "Index",
     content: msg,
     data: data,
-    filename: 'data_item'
   });
   response.writeHead(200, {
     'Content-Type': 'text/html'
@@ -105,11 +121,11 @@ function response_other(request, response) {
 //       title: "Other",
 //       content: msg,
 //     });
-//     response.writeHead(200, {
-//       'Content-Type': 'text/html'
-//     });
-//     response.write(content);
-//     response.end();
+// response.writeHead(200, {
+//   'Content-Type': 'text/html'
+// });
+// response.write(content);
+// response.end();
 //   });
 // } else {
 //   var msg = "ページがありません。"
