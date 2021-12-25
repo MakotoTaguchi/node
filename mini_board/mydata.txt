@@ -1,0 +1,10 @@
+{"id":"makoto","msg":"おお"}
+{"id":"makoto","msg":"消える"}
+{"id":"makoto","msg":"う～ん"}
+{"id":"makoto","msg":"すばらしい"}
+{"id":"makoto","msg":"すごい"}
+{"id":"makoto","msg":"元気？"}
+{"id":"makoto","msg":"おはよう"}
+{"id":"makoto","msg":"こんばんは"}
+{"id":"masa","msg":"Hi!"}
+{"id":"makoto","msg":"こんばんは"}
